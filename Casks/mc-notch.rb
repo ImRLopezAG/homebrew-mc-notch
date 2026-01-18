@@ -1,6 +1,6 @@
 cask "mc-notch" do
   version "1.0.0"
-  sha256 "8c57191e5f479e4ad12f96c6379f090d471d270228964cf272f29f0ce5ad9a4c"
+  sha256 "858358d7f1b61594b941f66ff3ac9dd5c0bc2df20af46028fc9d1632bfa72745"
 
   url "https://github.com/ImRLopezAG/mc-notch/releases/download/v#{version}/mc-notch-#{version}.zip",
       verified: "github.com/ImRLopezAG/mc-notch/"
