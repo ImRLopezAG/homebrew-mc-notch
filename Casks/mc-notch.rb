@@ -16,7 +16,8 @@ cask "mc-notch" do
   # Remove quarantine to avoid Gatekeeper warning (app is not notarized)
   postflight do
     system_command "/usr/bin/xattr",
-                   args: ["-cr", "#{appdir}/mc-notch.app"]
+                   args: ["-cr", "#{appdir}/mc-notch.app"],
+                   sudo: true
   end
 
   caveats <<~EOS
