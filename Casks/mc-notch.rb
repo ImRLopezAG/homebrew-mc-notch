@@ -13,6 +13,18 @@ cask "mc-notch" do
 
   app "mc-notch.app"
 
+  # Remove quarantine to avoid Gatekeeper warning (app is not notarized)
+  postflight do
+    system_command "/usr/bin/xattr",
+                   args: ["-cr", "#{appdir}/mc-notch.app"]
+  end
+
+  caveats <<~EOS
+    mc-notch is not notarized by Apple.
+    If you see a security warning, the postflight script should have fixed it.
+    If not, run: xattr -cr /Applications/mc-notch.app
+  EOS
+
   zap trash: [
     "~/Library/Preferences/com.mcnotch.app.plist",
     "~/Library/Caches/com.mcnotch.app",
